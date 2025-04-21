@@ -7,12 +7,12 @@
 int main() {
     /*Parte inicial do programa, onde sao declaradas todas as variaveis 
     (tipo nome_da_variavel[N]) N=Numero de caracteres quando string*/
-    char estado01[50];
-    char estado02[50]; 
-    char codigo01[5];
-    char codigo02[5];
-    char cidade01[50];
-    char cidade02[50];
+    char estado01[50] = "A";
+    char estado02[50] = "B"; 
+    char codigo01[5] = "A01";
+    char codigo02[5] = "B01";
+    char cidade01[50] = "a";
+    char cidade02[50] = "b";
     int populacao01 = 0, populacao02 = 0;
     float area01 = 0, area02 = 0;
     float pib01 = 0, pib02 = 0;       
@@ -59,6 +59,8 @@ int main() {
 
     /*Escreve no terminal todas as informçoes salvas nas variaveis referente a carta 01*/
     printf("\n");
+    printf("_____________________________\n");
+    printf("INFORMAÇOES\n");
     printf("Carta 01\n");
     printf("Estado: %s\n", estado01);
     printf("Código: %s\n", codigo01);
