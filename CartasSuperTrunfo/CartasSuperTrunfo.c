@@ -7,9 +7,12 @@
 int main() {
     /*Parte inicial do programa, onde sao declaradas todas as variaveis 
     (tipo nome_da_variavel[N]) N=Numero de caracteres quando string*/
-    char estado01[50], estado02[50]; 
-    char codigo01[5], codigo02[5];
-    char cidade01[50], cidade02[50];
+    char estado01[50];
+    char estado02[50]; 
+    char codigo01[5];
+    char codigo02[5];
+    char cidade01[50];
+    char cidade02[50];
     int populacao01 = 0, populacao02 = 0;
     float area01 = 0, area02 = 0;
     float pib01 = 0, pib02 = 0;       
@@ -23,7 +26,7 @@ int main() {
     %f - flutuante - que possui casas decimais    */
     printf("Insira as informaçoes da primeira carta - \n"); //Solicita no terminal as informaçoes da carta 01
     printf("Estado: ");
-    scanf("%s", &estado01); 
+    scanf("%s", &estado01);
     printf("Código: ");
     scanf("%s", &codigo01);
     printf("Cidade: ");
