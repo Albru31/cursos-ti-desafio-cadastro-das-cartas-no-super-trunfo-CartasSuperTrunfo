@@ -7,19 +7,21 @@
 int main() {
     /*Parte inicial do programa, onde sao declaradas todas as variaveis 
     (tipo nome_da_variavel[N]) N=Numero de caracteres quando string*/
-    char estado01[60] = "A";
-    char estado02[60] = "B"; 
-    char codigo01[5] = "A01";
-    char codigo02[5] = "B01";
-    char cidade01[60] = "a";
-    char cidade02[60] = "b";
+    char estado01[30];
+    char estado02[30]; 
+    char codigo01[4];
+    char codigo02[4];
+    char cidade01[30];
+    char cidade02[30];
     int populacao01 = 0, populacao02 = 0;
     float area01 = 0, area02 = 0;
     float densidade01 = 0, densidade02 = 0;
     float pib01 = 0, pib02 = 0;   
-    float renda01 = 0, renda02 = 0;    
+    double  renda01 = 0, renda02 = 0;    
     int pTuristicos01 = 0, pTuristicos02 = 0;
-    
+    float poder01;
+    float poder02;
+        
     /* printf - escreve no terminal
     scanf - salva o que foi escrito no terminal na variavel
     \n - pula linha no terminal
@@ -40,10 +42,10 @@ int main() {
     scanf("%d", &populacao01);
     printf("Área: ");
     scanf("%f", &area01);
-    densidade01 = populacao01 / area01;  // Dividindo a populaçao pela area se obtem a densidade populacional.
+    densidade01 = (float)populacao01 / area01;  // Dividindo a populaçao pela area se obtem a densidade populacional.
     printf("PIB: ");
     scanf("%f", &pib01);
-    renda01 = populacao01 / area01;  // Dividindo o PIB pela populaçao se obtem a renda percapta.
+    renda01 = (pib01 * 100000000) / (float)populacao01;  // Dividindo o PIB pela populaçao se obtem a renda percapta.
     printf("Número de pontos turisticos: ");
     scanf("%d", &pTuristicos01);
 
@@ -60,10 +62,10 @@ int main() {
     scanf("%d", &populacao02);
     printf("Área: ");
     scanf("%f", &area02);
-    densidade02 = populacao02 / area02;  // Dividindo a populaçao pela area se obtem a densidade populacional.
+    densidade02 = (float)populacao02 / area02;  // Dividindo a populaçao pela area se obtem a densidade populacional.
     printf("PIB: ");
     scanf("%f", &pib02);
-    renda02 = populacao02 / pib02;  // Dividindo o PIB pela populaçao se obtem a renda percapta.
+    renda02 = (pib02 * 100000000) / (float)populacao02;  // Dividindo o PIB pela populaçao se obtem a renda percapta.
     printf("Número de pontos turisticos: ");
     scanf("%d", &pTuristicos02);
 
@@ -79,8 +81,10 @@ int main() {
     printf("Área: %.2f km²\n", area01); // %.2f - O ".2" define o numero de casas decimais de escrita
     printf("Densidade Populacional: %.2f hab/km²\n", densidade01);
     printf("PIB: %.2f bilhoes de reais\n", pib01);
-    printf("Renda Percapta: R$ %.2f\n", renda01);
+    printf("Renda Percapta: R$ %.2lf\n", renda01);
     printf("Número de Pontos Turísticos: %d\n", pTuristicos01);
+    poder01 = (float)populacao01 + area01 + pib01 + renda01 + (float)pTuristicos01 + (1 / densidade01);
+    printf("Poder: %.2f \n", poder01);
     printf("\n");
 
     /*Escreve no terminal todas as informaçoes salvas nas variaveis referente a carta 02*/
@@ -93,8 +97,22 @@ int main() {
     printf("Área: %.2f km² \n", area02); // %.2f - O ".2" define o numero de casas decimais de escrita
     printf("Densidade Populacional: %.2f hab/km²\n", densidade02);
     printf("PIB: %.2f bilhoes de reais\n", pib02);
-    printf("Renda Percapta: R$ %.2f\n", renda02);
+    printf("Renda Percapta: R$ %.2lf\n", renda02);
     printf("Número de pontos turísticos: %d \n", pTuristicos02);
+    poder02 = (float)populacao02 + area02 + pib02 + renda02 + (float)pTuristicos02 + (1 / densidade02);
+    printf("Poder: %.2f \n", poder02);
+    printf("\n");
+
+    // Comparaçao de Cartas
+    printf("*** Batalha de Cartas ***\n");
+    printf(("Populaçao: %d \n"), populacao01 > populacao02);
+    printf(("Área: %d \n"), area01 > area02);
+    printf("Densidade Populacional: %d\n", (1 / densidade01) > (1 / densidade02));
+    printf("PIB: %d\n", pib01 > pib02);
+    printf("Renda per Capta: %d\n", renda01 > renda02);
+    printf("Pontos Turísticos: %d\n", pTuristicos01 > pTuristicos02);
+    printf("Poder: %d\n", poder01 > poder02);
+
 
     return 0;
 }
