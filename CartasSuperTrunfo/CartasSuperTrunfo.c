@@ -43,7 +43,7 @@ int main() {
     printf("Área: ");
     scanf("%f", &area01);
     densidade01 = (float)populacao01 / area01;  // Dividindo a populaçao pela area se obtem a densidade populacional.
-    printf("PIB: ");
+    printf("PIB (bilhoes): ");
     scanf("%f", &pib01);
     renda01 = (pib01 * 100000000) / (float)populacao01;  // Dividindo o PIB pela populaçao se obtem a renda percapta.
     printf("Número de pontos turisticos: ");
@@ -63,7 +63,7 @@ int main() {
     printf("Área: ");
     scanf("%f", &area02);
     densidade02 = (float)populacao02 / area02;  // Dividindo a populaçao pela area se obtem a densidade populacional.
-    printf("PIB: ");
+    printf("PIB (bilhoes): ");
     scanf("%f", &pib02);
     renda02 = (pib02 * 100000000) / (float)populacao02;  // Dividindo o PIB pela populaçao se obtem a renda percapta.
     printf("Número de pontos turisticos: ");
@@ -104,15 +104,28 @@ int main() {
     printf("\n");
 
     // Comparaçao de Cartas
-    printf("*** Batalha de Cartas ***\n");
-    printf(("Populaçao: %d \n"), populacao01 > populacao02);
-    printf(("Área: %d \n"), area01 > area02);
-    printf("Densidade Populacional: %d\n", (1 / densidade01) > (1 / densidade02));
-    printf("PIB: %d\n", pib01 > pib02);
-    printf("Renda per Capta: %d\n", renda01 > renda02);
-    printf("Pontos Turísticos: %d\n", pTuristicos01 > pTuristicos02);
-    printf("Poder: %d\n", poder01 > poder02);
+    printf("*** Comparaçao de Cartas ***\n");
+    printf("%s (%s): %d\n", cidade01, estado01, populacao01);
+    printf("%s (%s): %d\n", cidade02, estado02,  populacao02);
+    printf(" \n");
 
+    // Executa uma condiçao sobre uma comparaçao. 
+    // Se o valor de "populacao01" for maior que o valor de "populaçao02", entao...
+    // > - sinal de maior que
+    if (populacao01 > populacao02)
+    {
+        printf("Carta 01 (%s) venceu!", cidade01);
+    }
+    // < - sinal de menor que
+    if (populacao01 < populacao02)
+    {
+        printf("Carta 02 (%s) venceu!", cidade02);
+    }
+    // == sinal de igualdade
+    if (populacao01 == populacao02)
+    {
+        printf("Empate!");
+    }
 
     return 0;
 }
